@@ -1,0 +1,740 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HB.AbpFundation.Domain.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:HB.AbpFundation.DTOs.Common.AggregateDto">
+            <summary>
+            聚合根DTO
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.AggregateDto.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.AggregateDto.CreationTime">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.AggregateDto.CreatorId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.AggregateDto.CreatorName">
+            <summary>
+            创建人姓名
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.AggregateDto.LastModificationTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.AggregateDto.LastModifierId">
+            <summary>
+            最后修改人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.AggregateDto.LastModifierName">
+            <summary>
+            最后修改人姓名
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.ExportDataItem.Done">
+            <summary>
+            是否完成
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.ExportDataItem.FilePath">
+            <summary>
+            导出文件
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.ExportDataItem.Progress">
+            <summary>
+            进度
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.Common.GetIdInput">
+            <summary>
+            查询单条数据
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.GetIdInput.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.Common.GetListInput">
+            <summary>
+            基础分页查询参数
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.GetListInput.Keywords">
+            <summary>
+            关键词查询
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.GetListInput.ReadOnly">
+            <summary>
+            是否从读库查询
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.Common.IReadOnlyInput">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.IReadOnlyInput.ReadOnly">
+            <summary>
+            是否从读库查询
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.Common.QueryApiBaseResultDto">
+            <summary>
+            API封装
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.QueryApiBaseResultDto.Code">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.QueryApiBaseResultDto.Msg">
+            <summary>
+            提示消息
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.Common.QueryApiBaseResultDto`1">
+            <summary>
+            API封装
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.QueryApiBaseResultDto`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.Common.QueryInput">
+            <summary>
+            查询基类
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.Common.QueryInput.ReadOnly">
+            <summary>
+            从读库查询
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.GetMenuInput.ProviderKey">
+            <summary>
+            提供者对应的ID（R=角色,U=用户,T=租户）
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.GetMenuInput.ProviderName">
+            <summary>
+            提供者（R=角色,U=用户,T=租户）
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateMenuInput.ParentId">
+            <summary>
+            上级菜单
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateMenuInput.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateMenuInput.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateMenuInput.Url">
+            <summary>
+            访问地址
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateMenuInput.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateMenuInput.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateMenuInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateMenuInput.Permissions">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateMenuInput.ParentId">
+            <summary>
+            上级菜单
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateMenuInput.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateMenuInput.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateMenuInput.Url">
+            <summary>
+            访问地址
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateMenuInput.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateMenuInput.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateMenuInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateMenuInput.Permissions">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuPermissionInput.PermissionCode">
+            <summary>
+            权限码
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuPermissionInput.PermissionName">
+            <summary>
+            权限名
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuPermissionInput.IsDefault">
+            <summary>
+            是否默认
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.ParentId">
+            <summary>
+            上级菜单
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.Url">
+            <summary>
+            访问地址
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.SequenceTime">
+            <summary>
+            排序时间
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.Permissions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.CheckPermissions">
+            <summary>
+            选择的权限
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.CheckPermissionAll">
+            <summary>
+            是否全选
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.MenuDto.Children">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.GrantedInput.ProviderKey">
+            <summary>
+            提供者对应的ID（R=角色,U=用户,T=租户）
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.GrantedInput.ProviderName">
+            <summary>
+            提供者（R=角色,U=用户,T=租户）
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.GrantedInput.PermissionCodes">
+            <summary>
+            权限码
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.RBAC.CreateRoleInput">
+            <summary>
+            新增角色
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateRoleInput.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateRoleInput.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateRoleInput.IsDefault">
+            <summary>
+            是否默认角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateRoleInput.IsStatic">
+            <summary>
+            是否静态角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateRoleInput.IsPublic">
+            <summary>
+            是否公共角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateRoleInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.RBAC.RoleDto">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.RoleDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.RoleDto.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.RoleDto.SenquenceTime">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.RoleDto.IsDefault">
+            <summary>
+            是否默认角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.RoleDto.IsStatic">
+            <summary>
+            是否静态角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.RoleDto.IsPublic">
+            <summary>
+            是否公共角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.RoleDto.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.RBAC.UpdateRoleInput">
+            <summary>
+            更新角色
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateRoleInput.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateRoleInput.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateRoleInput.IsDefault">
+            <summary>
+            是否默认角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateRoleInput.IsStatic">
+            <summary>
+            是否静态角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateRoleInput.IsPublic">
+            <summary>
+            是否公共角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateRoleInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.RBAC.CreateTenantInput">
+            <summary>
+            新增租户参数
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateTenantInput.Name">
+            <summary>
+            租户名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateTenantInput.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateTenantInput.Logo">
+            <summary>
+            logo
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateTenantInput.ContractName">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateTenantInput.ContractPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateTenantInput.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.RBAC.GetTenantInput">
+            <summary>
+            租户分页查询参数
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.TenantDto.Name">
+            <summary>
+            租户名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.TenantDto.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.TenantDto.Logo">
+            <summary>
+            logo
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.TenantDto.ContractName">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.TenantDto.ContractPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.TenantDto.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.DTOs.RBAC.UpdateTenantInput">
+            <summary>
+            修改租户参数
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateTenantInput.Name">
+            <summary>
+            租户名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateTenantInput.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateTenantInput.Logo">
+            <summary>
+            logo
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateTenantInput.ContractName">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateTenantInput.ContractPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateTenantInput.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateUserInput.Surname">
+            <summary>
+            此用户的姓氏。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateUserInput.Email">
+            <summary>
+            此用户的电子邮件地址。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateUserInput.PhoneNumber">
+            <summary>
+            此用户的电话号码。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateUserInput.IsActive">
+            <summary>
+            指示此用户是否处于活动状态。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.CreateUserInput.RoleIds">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateUserProfileInput.Surname">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.LoginInput.UserName">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.LoginInput.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateUserInput.Surname">
+            <summary>
+            此用户的姓氏。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateUserInput.Email">
+            <summary>
+            此用户的电子邮件地址。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateUserInput.PhoneNumber">
+            <summary>
+            此用户的电话号码。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateUserInput.IsActive">
+            <summary>
+            指示此用户是否处于活动状态。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UpdateUserInput.RoleIds">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.UserName">
+            <summary>
+            此用户的用户名。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.NormalizedUserName">
+            <summary>
+            此用户的规范化用户名。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.Name">
+            <summary>
+            此用户的名称。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.Surname">
+            <summary>
+            此用户的姓氏。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.Email">
+            <summary>
+            此用户的电子邮件地址。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.NormalizedEmail">
+            <summary>
+            此用户的规范化电子邮件地址。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.EmailConfirmed">
+            <summary>
+            指示用户是否已确认其电子邮件地址。
+            <value>如果电子邮件地址已确认，则为 true，否则为 false。</value>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.PhoneNumber">
+            <summary>
+            此用户的电话号码。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.PhoneNumberConfirmed">
+            <summary>
+            指示用户是否已确认其电话地址。
+            <value>如果电话号码已确认，则为 true，否则为 false。</value>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.IsActive">
+            <summary>
+            指示此用户是否处于活动状态。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.TwoFactorEnabled">
+            <summary>
+            指示是否为此用户启用了两步验证。
+            <value>如果启用了两步验证，则为 true，否则为 false。</value>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.LockoutEnd">
+            <summary>
+            在 UTC 中，任何用户锁定结束的日期和时间。
+            <remarks>过去的时间值表示用户未被锁定。</remarks>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.LockoutEnabled">
+            <summary>
+            指示用户是否可能被锁定。
+            <value>如果用户可能被锁定，则为 true，否则为 false。</value>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.AccessFailedCount">
+            <summary>
+            当前用户的失败登录尝试次数。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.ShouldChangePasswordOnNextLogin">
+            <summary>
+            指示用户是否应在下次登录时更改密码。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.Introduction">
+            <summary>
+            个人简介
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.DTOs.RBAC.UserDto.RoleIds">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.Helpers.FileHelper">
+            <summary>
+            文件操作处理类
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.Helpers.FileHelper.CreateFilePath(System.String,HB.AbpFundation.Helpers.FileType,System.String)">
+            <summary>
+            生成保存文件的目录
+            </summary>
+            <param name="pathPrefix">路径前缀</param>
+            <param name="type"></param>
+            <param name="ext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Helpers.FileHelper.CreateResourceType(System.String)">
+            <summary>
+            根据文件后缀获取资源类型
+            </summary>
+            <param name="ext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Helpers.FileHelper.GetResourceDurationLength(System.String)">
+            <summary>
+            获取音频或视频的长度
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Helpers.FileHelper.CreateDirectoryIfNotExist(System.String)">
+            <summary>
+            创建文件的文件夹
+            </summary>
+            <param name="zipPath"></param>
+        </member>
+        <member name="M:HB.AbpFundation.Services.INumberService.GetUserNameListAsync(System.Int32)">
+            <summary>
+            获取账号
+            </summary>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="F:HB.AbpFundation.ValueObject.RedisKeys.REFRESH_TOKEN">
+            <summary>
+            刷新令牌
+            </summary>
+        </member>
+        <member name="F:HB.AbpFundation.ValueObject.RedisKeys.CONTEXT_USER">
+            <summary>
+            上下文用户
+            </summary>
+        </member>
+    </members>
+</doc>

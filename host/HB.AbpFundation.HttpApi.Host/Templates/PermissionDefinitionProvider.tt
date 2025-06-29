@@ -1,0 +1,39 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="List<PersistenceObjectInfo>" name="EntityCollection" #>
+<#@ output extension=".cs" #>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Volo.Abp.Authorization.Permissions;
+using <#=CompanyName#>.<#=ModuleName#>.Permissions;
+
+namespace <#=CompanyName#>.<#=ModuleName#>.Permissions
+{
+    public partial class <#=ModuleName #>PermissionDefinitionProvider
+    {
+        public void Define<#=FunctionName #>(PermissionGroupDefinition group)
+        {
+
+<# foreach(var Entity in EntityCollection){ #>
+            /// <summary>
+            /// <#=Entity.Comment #>
+            /// </summary>
+            group.AddModulePermission(typeof(<#=ModuleName #>Permissions.<#=Entity.AggregationName #>));
+<#}#>
+        }
+    }
+}

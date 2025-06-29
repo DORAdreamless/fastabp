@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <RootNamespace>HB.AbpFundation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="8.3.4" />
+    <ProjectReference Include="..\HB.AbpFundation.Domain\HB.AbpFundation.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Fody" Version="6.8.1">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

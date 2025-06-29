@@ -1,0 +1,62 @@
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".cs" #>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Volo.Abp.Application.Dtos;
+using Volo.Abp.ObjectMapping;
+using HB.AbpFundation.DTOs.Common;
+using Volo.Abp.Application.Services;
+using <#=CompanyName#>.<#=ModuleName#>.Application.Contracts.<#=FunctionName#>;
+using <#=CompanyName#>.<#=ModuleName#>.Domain.Repositories.<#=FunctionName#>;
+using <#=CompanyName#>.<#=ModuleName#>.AggregateRoot.<#=FunctionName#>;
+using <#=CompanyName #>.<#=ModuleName#>.DTOs.<#=FunctionName#>;
+using <#=CompanyName #>.<#=ModuleName#>.ValueObject.<#=FunctionName#>;
+
+namespace <#=Namespace#>.<#=FunctionName#>
+{
+    /// <summary>
+    /// <#=Entity.Comment #>查询服务
+    /// </summary>
+    public class <#=Entity.QueryServiceName#> : <#=ModuleName#>AppService, <#=Entity.IQueryServiceName#>
+    {
+        private readonly  <#=Entity.IRepositoryName#> _repository;
+
+        public <#=Entity.QueryServiceName#>(<#=Entity.IRepositoryName#> repository)
+        {
+            _repository = repository;
+        }
+
+
+        public async Task<<#=Entity.Output#>> GetAsync(GetIdInput input)
+        {
+           var <#=Entity.AggregationVar#> = await  _repository.GetAsync(input.Id);
+            return ObjectMapper.Map<<#=Entity.AggregationName#>,<#=Entity.Output#>>(<#=Entity.AggregationVar#>);
+        }
+
+        public async Task<PagedResultDto<<#=Entity.Output#>>> GetListAsync(<#=Entity.GetListInput#> input)
+        {
+            var list = await _repository.GetPagedListAsync(input.SkipCount, input.MaxResultCount,input.Sorting);
+            return new PagedResultDto<<#=Entity.Output#>>()
+            {
+                Items = ObjectMapper.Map<IReadOnlyList<<#=Entity.AggregationName#>>, List<<#=Entity.Output#>>>(list.Items),
+                TotalCount = list.TotalCount
+            };
+        }
+    }
+}
+

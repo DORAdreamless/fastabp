@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <RootNamespace>HB.AbpFundation</RootNamespace>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <DocumentationFile>HB.AbpFundation.Application.Contracts.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="8.3.4" />
+    <PackageReference Include="Volo.Abp.Authorization" Version="8.3.4" />
+    <ProjectReference Include="..\HB.AbpFundation.Domain.Shared\HB.AbpFundation.Domain.Shared.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Update="HB.AbpFundation.Application.Contracts.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

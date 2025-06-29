@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HB.AbpFundation.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage">
+            <summary>
+            站内信
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage.Title">
+            <summary>
+            站内信标题
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage.Content">
+            <summary>
+            站内信内容
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage.SenderId">
+            <summary>
+            发送人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage.SenderName">
+            <summary>
+            发送者
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage.SendTime">
+            <summary>
+            发送时间
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage.ReplyUserId">
+            <summary>
+            回复人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage.ReplyUserName">
+            <summary>
+            回复人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessage.ReplyTime">
+            <summary>
+            回复时间
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.AggregateRoot.Messages.InsiteMessageReply">
+            <summary>
+            站内信回复
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessageReply.ReplyUserId">
+            <summary>
+            回复人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessageReply.ReplyUserName">
+            <summary>
+            回复人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessageReply.ReplyContent">
+            <summary>
+            回复内容
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.Messages.InsiteMessageReply.ReplyTime">
+            <summary>
+            回复时间
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.AggregateRoot.RBAC.Menu">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Menu.ParentId">
+            <summary>
+            上级菜单
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Menu.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Menu.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Menu.Url">
+            <summary>
+            访问地址
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Menu.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Menu.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Menu.SequenceTime">
+            <summary>
+            排序时间
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Menu.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.AggregateRoot.RBAC.MenuPermission">
+            <summary>
+            菜单权限
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.MenuPermission.MenuId">
+            <summary>
+            菜单编码
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.MenuPermission.PermissionCode">
+            <summary>
+            权限码
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.MenuPermission.PermissionName">
+            <summary>
+            权限名
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.MenuPermission.IsDefault">
+            <summary>
+            是否默认
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.MenuPermission.SequenceTime">
+            <summary>
+            排序时间
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.AggregateRoot.RBAC.PermissionGranted">
+            <summary>
+            授权数据
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.PermissionGranted.ProviderKey">
+            <summary>
+            提供者对应的ID（R=角色,U=用户,T=租户）
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.PermissionGranted.ProviderName">
+            <summary>
+            提供者（R=角色,U=用户,T=租户）
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.PermissionGranted.PermissionCode">
+            <summary>
+            权限码
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.AggregateRoot.RBAC.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Role.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Role.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Role.SenquenceTime">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Role.IsDefault">
+            <summary>
+            是否默认角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Role.IsStatic">
+            <summary>
+            是否静态角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Role.IsPublic">
+            <summary>
+            是否公共角色。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Role.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.AggregateRoot.RBAC.Tenant">
+            <summary>
+            租户
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Tenant.Name">
+            <summary>
+            租户名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Tenant.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Tenant.MasterConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Tenant.ReadOnlyConnectionStrings">
+            <summary>
+            读库连接字符串
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Tenant.Logo">
+            <summary>
+            logo
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Tenant.ContractName">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Tenant.ContractPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.Tenant.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.AggregateRoot.RBAC.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.UserName">
+            <summary>
+            此用户的用户名。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.NormalizedUserName">
+            <summary>
+            此用户的规范化用户名。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.Name">
+            <summary>
+            此用户的名称。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.Surname">
+            <summary>
+            此用户的姓氏。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.Email">
+            <summary>
+            此用户的电子邮件地址。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.NormalizedEmail">
+            <summary>
+            此用户的规范化电子邮件地址。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.EmailConfirmed">
+            <summary>
+            指示用户是否已确认其电子邮件地址。
+            <value>如果电子邮件地址已确认，则为 true，否则为 false。</value>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.PasswordHash">
+            <summary>
+            此用户的密码的加盐和哈希表示。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.SecurityStamp">
+            <summary>
+            一个随机值，每当用户的凭据更改时（密码更改、登录移除）必须更改。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.PhoneNumber">
+            <summary>
+            此用户的电话号码。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.PhoneNumberConfirmed">
+            <summary>
+            指示用户是否已确认其电话地址。
+            <value>如果电话号码已确认，则为 true，否则为 false。</value>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.IsActive">
+            <summary>
+            指示此用户是否处于活动状态。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.TwoFactorEnabled">
+            <summary>
+            指示是否为此用户启用了两步验证。
+            <value>如果启用了两步验证，则为 true，否则为 false。</value>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.LockoutEnd">
+            <summary>
+            在 UTC 中，任何用户锁定结束的日期和时间。
+            <remarks>过去的时间值表示用户未被锁定。</remarks>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.LockoutEnabled">
+            <summary>
+            指示用户是否可能被锁定。
+            <value>如果用户可能被锁定，则为 true，否则为 false。</value>
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.AccessFailedCount">
+            <summary>
+            当前用户的失败登录尝试次数。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.ShouldChangePasswordOnNextLogin">
+            <summary>
+            指示用户是否应在下次登录时更改密码。
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.User.Introduction">
+            <summary>
+            个人简介
+            </summary>
+        </member>
+        <member name="T:HB.AbpFundation.AggregateRoot.RBAC.UserRole">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.UserRole.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.AggregateRoot.RBAC.UserRole.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.CreationTime">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.CreatorId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.CreatorName">
+            <summary>
+            创建人姓名
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.LastModificationTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.LastModifierId">
+            <summary>
+            最后修改人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.LastModifierName">
+            <summary>
+            最后修改人姓名
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.DeletionTime">
+            <summary>
+            删除时间
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.DeleterId">
+            <summary>
+            删除人
+            </summary>
+        </member>
+        <member name="P:HB.AbpFundation.Persistences.PersistenceObjectBase.DeleterName">
+            <summary>
+            删除人姓名
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.Repositories.RBAC.IUserRepository.CreateAsync(HB.AbpFundation.AggregateRoot.RBAC.User,System.Collections.Generic.List{HB.AbpFundation.AggregateRoot.RBAC.UserRole})">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <param name="userRoles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Repositories.RBAC.IUserRepository.GetUserRolesAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Repositories.RBAC.IUserRepository.UpdateAsync(HB.AbpFundation.AggregateRoot.RBAC.User,System.Collections.Generic.List{HB.AbpFundation.AggregateRoot.RBAC.UserRole})">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <param name="userRoles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Repositories.RBAC.IMenuRepository.CreateAsync(HB.AbpFundation.AggregateRoot.RBAC.Menu,System.Collections.Generic.List{HB.AbpFundation.AggregateRoot.RBAC.MenuPermission})">
+            <summary>
+            
+            </summary>
+            <param name="menu"></param>
+            <param name="listMenuPermission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Repositories.RBAC.IMenuRepository.GetAllMenuPermissionsAsync">
+            <summary>
+            获取所有菜单权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Repositories.RBAC.IMenuRepository.GetDetailAsync(HB.AbpFundation.DTOs.Common.GetIdInput)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Repositories.RBAC.IMenuRepository.UpdateAsync(HB.AbpFundation.AggregateRoot.RBAC.Menu,System.Collections.Generic.List{HB.AbpFundation.AggregateRoot.RBAC.MenuPermission})">
+            <summary>
+            更新菜单
+            </summary>
+            <param name="menu"></param>
+            <param name="listMenuPermission"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HB.AbpFundation.Repositories.RBAC.IRoleRepository">
+            <summary>
+            角色仓储
+            </summary>
+        </member>
+    </members>
+</doc>

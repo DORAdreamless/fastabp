@@ -1,0 +1,49 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".cs" #>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace <#=CompanyName #>.<#=ModuleName #>.Permissions
+{
+    public partial class <#=ModuleName #>Permissions
+    {
+        /// <summary>
+        /// <#=Entity.Comment #>   
+        /// </summary>
+        public  class <#=Entity.AggregationName #> 
+        {
+            /// <summary>
+            /// 默认查询权限
+            /// </summary>
+            public const string Default = GroupName + "." + nameof(<#=Entity.AggregationName #>);
+            /// <summary>
+            /// 新增
+            /// </summary>
+            public const string Create=Default + "." + nameof(Create);
+            /// <summary>
+            /// 修改
+            /// </summary>
+            public const string Update = Default + "." + nameof(Update);
+            /// <summary>
+            /// 删除
+            /// </summary>
+            public const string Delete = Default + "." + nameof(Delete);
+        }
+    }
+}

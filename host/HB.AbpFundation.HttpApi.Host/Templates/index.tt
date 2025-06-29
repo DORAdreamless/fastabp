@@ -1,0 +1,303 @@
+<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="String" name="PermissionCode" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".vue" #>
+
+<template>
+  <el-card shadow="never">
+    <el-form inline>
+<# foreach(var property in Entity.Properties){ #>
+      <el-form-item label="<#=property.Comment #>">
+        <el-input v-model.trim="searchParam.<#=property.NameVar #>" placeholder="<#=property.Comment #>" clearable size="small" />
+      </el-form-item>
+<#}#>
+      <el-form-item>
+        <el-button v-permission="<#=PermissionCode #>02" type="primary" size="small" @click="search()">新增</el-button>
+        <el-button v-permission="<#=PermissionCode #>01" type="primary" size="small" @click="search()">查询</el-button>
+        <el-button v-permission="<#=PermissionCode #>01"  size="small" @click="handleExport()">导出</el-button>
+      </el-form-item>
+      
+    </el-form>
+
+    <el-table v-loading="loading" :data="tableData" max-height="650" border>
+      <el-table-column label="序号" type="index" width="50" align="center" />
+<# foreach(var property in Entity.Properties){ #>
+      <el-table-column label="<#=property.Comment#>" align="left" prop="<#=property.NameVar #>" show-overflow-tooltip />
+<#}#>
+      <el-table-column label="最后修改人" align="left" prop="lastUpdateTime" show-overflow-tooltip>
+      </el-table-column>
+      <el-table-column label="最后修改时间" align="left" prop="lastUpdateUserName" show-overflow-tooltip>
+      </el-table-column>
+      <el-table-column
+        label="操作"
+        align="center"
+        width="160"
+        fixed="right"
+        class-name="small-padding fixed-width"
+      >
+        <template slot-scope="scope">
+        <el-button
+            v-permission="<#=PermissionCode #>01"
+            size="mini"
+            type="primary"
+            icon="el-icon-view"
+            @click="handleRowView(scope.row)"
+          >查看</el-button>
+          <el-button
+            v-permission="<#=PermissionCode #>03"
+            size="mini"
+            type="primary"
+            icon="el-icon-edit"
+            @click="handleRowEdit(scope.row)"
+          >编辑</el-button>
+          <el-button
+            v-permission="<#=PermissionCode #>04"
+            size="mini"
+            type="danger"
+            icon="el-icon-danger"
+            @click="handleRowDelete(scope.row)"
+          >删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <!-- 分页 -->
+    <el-pagination
+      v-show="searchParam.total > 0"
+      :total="searchParam.total"
+      :current-page="searchParam.pageIndex"
+      :page-size="searchParam.pageSize"
+      @current-change="handleCurrentChange"
+      @size-change="handleSizeChange"
+      :page-sizes="[10, 20, 50, 100]"
+      layout="total, sizes, prev, pager, next, jumper"
+      class="fr"
+    />
+
+    <el-dialog :visible.sync="dialogEditor.isOpen" :title="dialogEditor.title" width="60%">
+      <Editor @complete="handleSubmitComplete" :id="dialogEditor.id" ref="form" />
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="handleCancel()">取 消</el-button>
+        <el-button v-loading="dialogEditor.loading" type="primary" @click="handleSubmit()">保存</el-button>
+      </span>
+    </el-dialog>
+
+    <el-dialog :visible.sync="dialogView.isOpen" :title="dialogView.title" width="60%">
+      <View :id="dialogView.id" />
+    </el-dialog>
+  </el-card>
+</template>
+  
+  <script>
+import { EmptyGuid } from '@/utils/guid'
+import Editor from './components/editor.vue'
+import View from './components/view.vue'
+import DataDictSelect from '@/components/dataDictSelect/index.vue'
+import { get<#=Entity.AggregationName #>List,delete<#=Entity.AggregationName #>, export<#=Entity.AggregationName #> } from '@/api/<#=StringUtils.GetCamelCaseVar(ModuleName) #>/<#=StringUtils.GetCamelCaseVar(FunctionName) #>/<#=Entity.AggregationVar #>.js'
+export default {
+  components: { Editor,View, DataDictSelect },
+  filters: {
+  },
+  data() {
+    return {
+      loading: false,
+      tableData: [],
+      searchParam: {
+        pageIndex: 1,
+        pageSize: 20,
+        total: 0,
+        readOnly: true,
+<# foreach(var property in Entity.Properties){ #>
+        <#=property.NameVar #>: '',
+<#}#>
+      },
+      dialogEditor: {
+        isOpen: false,
+        title: '',
+        loading: false,
+        id: null
+      },
+      dialogView:{
+        isOpen: false,
+        title: '',
+        loading: false,
+        id: null
+      }
+    }
+  },
+  methods: {
+    handleCurrentChange(val) {
+      this.searchParam.pageIndex = val
+      this.getList()
+    },
+    handleSizeChange(val) {
+      this.searchParam.pageSize = val
+      this.getList()
+    },
+    handleSubmit() {
+      this.dialogEditor.loading = true
+      this.$refs['form'].submit()
+    },
+    handleSubmitComplete(success) {
+      this.dialogEditor.loading = false
+      if (success) {
+        this.dialogEditor.isOpen = false
+        this.dialogEditor.id = null
+        this.searchParam.readOnly = false
+        this.getList()
+      }
+    },
+    handleCancel() {
+      this.dialogEditor.id = null
+      this.dialogEditor.isOpen = false
+      this.dialogEditor.loading = false
+    },
+    getList() {
+      this.loading = true
+      get<#=Entity.AggregationName #>List(this.searchParam)
+        .then(res => {
+          if (res.code == 0) {
+            this.tableData = res.data.data || []
+            this.searchParam.total = res.data.total
+            this.searchParam.readOnly = true
+          }
+        })
+        .finally(() => {
+          this.loading = false
+        })
+    },
+    search() {
+      this.getList(true)
+    },
+    handleCreate(){
+      this.dialogEditor.title = '新增<#=Entity.Comment #>'
+      this.dialogEditor.id = null
+      this.dialogEditor.loading = false
+      this.dialogEditor.isOpen = true
+    },
+    handleRowEdit(item) {
+      this.dialogEditor.title = '修改<#=Entity.Comment #>'
+      this.dialogEditor.id = item.id
+      this.dialogEditor.loading = false
+      this.dialogEditor.isOpen = true
+    },
+    handleRowDelete(item) {
+        this.$confirm(
+            '你确认要删除吗？',
+            '操作确认').then(()=>{
+            delete<#=Entity.AggregationName #>().then((res)=>{
+                if(res.code==0){
+                    this.searchParam.readOnly = false
+                    this.getList();
+                    this.$notify({
+                        title: '操作成功',
+                        message: '删除成功',
+                        type: 'success'
+                    })
+                }
+            })
+        })
+    },
+    handleRowView(item){
+      this.dialogView.title = '查看<#=Entity.Comment #>'
+      this.dialogView.id = item.id
+      this.dialogView.loading = false
+      this.dialogView.isOpen = true
+    },
+    handleExport() {
+      this.searchParam.readOnly = true
+      export<#=Entity.AggregationName #>(this.searchParam).then(res => {
+        if (res.code == 0) {
+          this.downloadExportfile(res.data);
+        }
+      })
+    }
+  },
+  mounted() {
+    this.getList()
+  }
+}
+</script>
+  <style lang="scss" scoped>
+.el-select {
+  .el-select__tags {
+    .el-tag--small {
+      height: auto;
+      line-height: auto;
+    }
+    .el-tag {
+      white-space: normal;
+      height: auto;
+    }
+  }
+}
+.tree-title {
+  height: 40px;
+  line-height: 40px;
+  background: transparent;
+  font-size: 15px;
+  color: #666666;
+  padding-left: 10px;
+}
+.tree-body {
+  margin-top: 0px;
+}
+
+.material-tag {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+// #dialog_win .el-form-item__label {
+//   line-height: 6px;
+// }
+// #dialog_win .el-form-item {
+//   margin-bottom: 10px;
+// }
+// #dialog_win .el-table__header tr,
+// #dialog_win .el-table__header th {
+//   padding: 0;
+//   height: 40px;
+// }
+// #dialog_win .el-table__body tr,
+// #dialog_win .el-table__body td {
+//   padding: 0;
+//   height: 40px;
+// }
+
+// #dialog_win .el-table th,
+// #dialog_win .el-table td {
+//   text-align: center;
+// }
+
+// #dialog_win .el-date-editor.el-input {
+//   width: 100%;
+// }
+
+// #dialog_win th {
+//   background-color: #f2f2f2;
+// }
+
+// #dialog_win th,
+// #psTable tr {
+//   height: 24px;
+// }
+
+// #dialog_win .cp-more {
+//   display: none;
+// }
+</style>
+  

@@ -1,0 +1,141 @@
+<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".vue" #>
+
+<template>
+  <el-form :model="model" :rules="rules" ref="form" label-width="120px">
+<# foreach(var property in Entity.Properties){ #>  
+    <el-form-item label="<#=property.Comment #>" prop="<#=property.NameVar #>">
+        <el-input v-model.trim="model.<#=property.NameVar #>" placeholder="<#=property.Comment #>"></el-input>
+    </el-form-item>
+<#}#>    
+  </el-form>
+</template>
+<script>
+import DataDictSelect from '@/components/dataDictSelect/index.vue'
+import { EmptyGuid } from '@/utils/guid'
+import { get<#=Entity.AggregationName #>,create<#=Entity.AggregationName #>,update<#=Entity.AggregationName #> } from '@/api/<#=StringUtils.GetCamelCaseVar(ModuleName) #>/<#=StringUtils.GetCamelCaseVar(FunctionName) #>/<#=Entity.AggregationVar #>.js'
+
+export default {
+  components: { DataDictSelect },
+  props: {
+    record: {
+      type: Object,
+      default: () => {
+        return {
+          id: '',
+<# foreach(var property in Entity.Properties){ #>  
+          <#=property.NameVar #>: '',
+<#}#>
+        }
+      }
+    }
+  },
+  data() {
+    return {
+      model: {
+        id: '',
+<# foreach(var property in Entity.Properties){ #>  
+        <#=property.NameVar #>: '',
+<#}#>
+      },
+      rules: {
+<# foreach(var property in Entity.Properties){ #>  
+        <#=property.NameVar #>: [{ required: true, message: '请填写<#=property.Comment #>', trigger: 'change' }],
+<#}#>
+
+      },
+      oldModel:{
+      
+      }
+    }
+  },
+  watch: {
+    id: {
+      handler() {
+        this.loadData();
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    loadData(){
+        if(!this.id){
+            return ;
+        }
+        let input ={
+            id:this.id,
+            readOnly:false
+        };
+        get<#=Entity.AggregationName #>(input).then(res=>{
+            if(res.code == 0){
+                this.model = Object.assign({},this.model,res.data);
+                this.oldModel = Object.assign({},this.oldModel,res.data);
+            }
+        })
+    },
+    submit() {
+      this.$refs['form'].validate(valid => {
+        if (!valid) {
+          this.$emit('complete')
+          return
+        }
+        let input = Object.assign({}, this.model)
+        input.afterModification = JSON.stringify({
+<# foreach(var property in Entity.Properties){ #>
+          <#=property.Comment #>: this.model.<#=property.NameVar #>,
+<#}#>
+        })
+        input.beforeModification = JSON.stringify({
+<# foreach(var property in Entity.Properties){ #>
+          <#=property.Comment #>: this.oldModel.<#=property.NameVar #>,
+<#}#>
+        })
+        input.newDto = JSON.stringify(this.model)
+        input.oldDto = JSON.stringify(this.oldModel)
+        if (!this.id||this.id==EmptyGuid) {
+          create<#=Entity.AggregationName #>(input).then(res => {
+            if (res.code == 0) {
+                this.$notify({
+                    title: '操作成功',
+                    message: '新增成功',
+                    type: 'success'
+                })
+                this.$emit('complete', true)
+            } else {
+              this.$emit('complete')
+            }
+          }).catch(()=>{
+            this.$emit('complete')
+          })
+        } else {
+          update<#=Entity.AggregationName #>(input).then(res => {
+            if (res.code == 0) {
+                this.$notify({
+                    title: '操作成功',
+                    message: '修改成功',
+                    type: 'success'
+                })
+                this.$emit('complete', true)
+            } else {
+              this.$emit('complete')
+            }
+          }).catch(()=>{
+            this.$emit('complete')
+          })
+        }
+      })
+    }
+  }
+}
+</script>

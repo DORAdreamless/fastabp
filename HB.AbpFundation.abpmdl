@@ -1,0 +1,79 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "HB.AbpFundation.Domain.Shared": {
+      "path": "src/HB.AbpFundation.Domain.Shared/HB.AbpFundation.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "HB.AbpFundation.Domain": {
+      "path": "src/HB.AbpFundation.Domain/HB.AbpFundation.Domain.abppkg",
+      "folder": "src"
+    },
+    "HB.AbpFundation.Application.Contracts": {
+      "path": "src/HB.AbpFundation.Application.Contracts/HB.AbpFundation.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "HB.AbpFundation.Application": {
+      "path": "src/HB.AbpFundation.Application/HB.AbpFundation.Application.abppkg",
+      "folder": "src"
+    },
+    "HB.AbpFundation.EntityFrameworkCore": {
+      "path": "src/HB.AbpFundation.EntityFrameworkCore/HB.AbpFundation.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "HB.AbpFundation.MongoDB": {
+      "path": "src/HB.AbpFundation.MongoDB/HB.AbpFundation.MongoDB.abppkg",
+      "folder": "src"
+    },
+    "HB.AbpFundation.HttpApi": {
+      "path": "src/HB.AbpFundation.HttpApi/HB.AbpFundation.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "HB.AbpFundation.HttpApi.Client": {
+      "path": "src/HB.AbpFundation.HttpApi.Client/HB.AbpFundation.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "HB.AbpFundation.TestBase": {
+      "path": "test/HB.AbpFundation.TestBase/HB.AbpFundation.TestBase.abppkg",
+      "folder": "test"
+    },
+    "HB.AbpFundation.EntityFrameworkCore.Tests": {
+      "path": "test/HB.AbpFundation.EntityFrameworkCore.Tests/HB.AbpFundation.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "HB.AbpFundation.MongoDB.Tests": {
+      "path": "test/HB.AbpFundation.MongoDB.Tests/HB.AbpFundation.MongoDB.Tests.abppkg",
+      "folder": "test"
+    },
+    "HB.AbpFundation.Domain.Tests": {
+      "path": "test/HB.AbpFundation.Domain.Tests/HB.AbpFundation.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "HB.AbpFundation.Application.Tests": {
+      "path": "test/HB.AbpFundation.Application.Tests/HB.AbpFundation.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "HB.AbpFundation.HttpApi.Host": {
+      "path": "host/HB.AbpFundation.HttpApi.Host/HB.AbpFundation.HttpApi.Host.abppkg",
+      "folder": "host"
+    },
+    "HB.AbpFundation.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/HB.AbpFundation.HttpApi.Client.ConsoleTestApp/HB.AbpFundation.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "HB.AbpFundation.AuthServer": {
+      "path": "host/HB.AbpFundation.AuthServer/HB.AbpFundation.AuthServer.abppkg",
+      "folder": "host"
+    },
+    "HB.AbpFundation.Host.Shared": {
+      "path": "host/HB.AbpFundation.Host.Shared/HB.AbpFundation.Host.Shared.abppkg",
+      "folder": "host"
+    }
+  }
+}

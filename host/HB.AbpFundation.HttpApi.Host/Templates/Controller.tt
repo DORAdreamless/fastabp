@@ -1,0 +1,117 @@
+<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="String" name="PermissionCode" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".cs" #>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Volo.Abp.Application.Dtos;
+using HB.AbpFundation.DTOs.Common;
+using <#=CompanyName #>.<#=ModuleName#>.Application.Contracts.<#=FunctionName #>;
+using <#=CompanyName #>.<#=ModuleName#>.Permissions;
+using <#=CompanyName #>.<#=ModuleName#>.DTOs.<#=FunctionName#>;
+
+namespace <#=Namespace#>.<#=FunctionName#>
+{
+    /// <summary>
+    /// <#=Entity.Comment #>接口
+    /// </summary>
+    [Route("api/<#=ModuleName#>/[controller]/[action]")]
+    public class <#=Entity.ControllerName #> : <#=ModuleName#>Controller
+    {
+        private readonly <#=Entity.IUseCaseServiceName #> <#=Entity.IUseCaseServiceMember #>;
+        private readonly <#=Entity.IQueryServiceName #> <#=Entity.IQueryServiceMember #>;
+
+        public <#=Entity.ControllerName #>(<#=Entity.IUseCaseServiceName #> <#=Entity.IUseCaseServiceVar #>, <#=Entity.IQueryServiceName #> <#=Entity.IQueryServiceVar #>)
+        {
+            <#=Entity.IUseCaseServiceMember #> = <#=Entity.IUseCaseServiceVar #>;
+            <#=Entity.IQueryServiceMember #> = <#=Entity.IQueryServiceVar #>;
+        }
+
+        /// <summary>
+        /// 新增<#=Entity.Comment #>
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<QueryApiBaseResultDto<bool>> CreateAsync([FromBody]<#=Entity.CreateInput #> input)
+        {
+            return await HandleAsync(async ()=>
+            {
+                return await <#=Entity.IUseCaseServiceMember #>.CreateAsync(input);
+            });
+        }
+
+        /// <summary>
+        /// 删除<#=Entity.Comment #>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public async Task<QueryApiBaseResultDto<bool>> DeleteAsync(Guid id)
+        {
+            return await HandleAsync(async ()=>
+            {
+                return await <#=Entity.IUseCaseServiceMember #>.DeleteAsync(id);
+            });
+        }
+        /// <summary>
+        /// 更新<#=Entity.Comment #>
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<QueryApiBaseResultDto<bool>> UpdateAsync([FromBody]<#=Entity.UpdateInput #> input)
+        {
+            return await HandleAsync(async ()=>
+            {
+                return await <#=Entity.IUseCaseServiceMember #>.UpdateAsync(input);
+            });
+        }
+        /// <summary>
+        /// 查询<#=Entity.Comment #>
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<QueryApiBaseResultDto<<#=Entity.Output #>>> GetAsync([FromQuery]GetIdInput input)
+        {
+            return await HandleAsync(async ()=>
+            {
+                return await <#=Entity.IQueryServiceMember #>.GetAsync(input);
+            });
+        }
+
+        /// <summary>
+        /// <#=Entity.Comment #>分页查询
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<QueryApiBaseResultDto<PagedResultDto<<#=Entity.Output #>>>> GetListAsync([FromQuery]<#=Entity.GetListInput #> input)
+        {
+            return await HandleAsync(async ()=>
+            {
+                return await <#=Entity.IQueryServiceMember #>.GetListAsync(input);
+            });
+        }
+
+ 
+    }
+}

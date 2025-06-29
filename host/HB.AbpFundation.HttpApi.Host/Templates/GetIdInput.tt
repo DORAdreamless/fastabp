@@ -1,0 +1,36 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".cs" #>
+
+
+using HB.FundationServices.Dtos;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Linq;
+using <#=Namespace #>.Enums;
+
+namespace <#=Namespace #>.Dtos.<#=FunctionName #>
+{
+    /// <summary>
+    /// 单条数据<#=Entity.Comment #>   
+    /// </summary>
+    public class <#=Entity.GetIdInput #> : QueryRequestDto
+    {
+        /// <summary>
+        /// 主键
+        /// </summary>
+        public Guid Id { get; set; }
+    }
+}

@@ -39,3 +39,12 @@
 
 # debug information files
 *.dwo
+host/HB.AbpFundation.AuthServer/node_modules/
+host/HB.AbpFundation.AuthServer/obj/
+.vs/
+obj
+bin
+test/HB.AbpFundation.Application.Tests/obj/
+test/HB.AbpFundation.Domain.Tests/obj/
+test/HB.AbpFundation.HttpApi.Client.ConsoleTestApp/obj/
+test/HB.AbpFundation.MongoDB.Tests/obj/

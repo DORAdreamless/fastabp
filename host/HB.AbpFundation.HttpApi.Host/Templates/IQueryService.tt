@@ -1,0 +1,44 @@
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".cs" #>
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using System.Linq;
+using Volo.Abp.Application.Dtos;
+using HB.AbpFundation.DTOs.Common;
+using Volo.Abp.Application.Services;
+using <#=Namespace #>.<#=FunctionName #>;
+using <#=CompanyName #>.<#=ModuleName#>.DTOs.<#=FunctionName#>;
+using <#=CompanyName #>.<#=ModuleName#>.ValueObject.<#=FunctionName#>;
+
+namespace <#=Namespace #>.<#=FunctionName #>
+{
+    /// <summary>
+    /// <#=Entity.Comment #>查询服务
+    /// </summary>
+    public interface <#=Entity.IQueryServiceName #>:IApplicationService
+    {
+        /// <summary>
+        /// 分页列表查询
+        /// </summary>
+        Task<PagedResultDto<<#=Entity.Output #>>> GetListAsync(<#=Entity.GetListInput #> input);
+        /// <summary>
+        /// 查询一条数据
+        /// </summary>
+        Task<<#=Entity.Output #>> GetAsync(GetIdInput input);
+    }
+}
+

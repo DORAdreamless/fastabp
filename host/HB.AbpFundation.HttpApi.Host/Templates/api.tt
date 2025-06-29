@@ -1,0 +1,40 @@
+<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".js" #>
+
+import { get, post, deleteR, put, postFormData } from '@/utils/request'
+const httpUrl = window.location.protocol === 'http:' ? process.env.VUE_APP_BASE_API : process.env.VUE_APP_BASE_API_HTTPS
+// <#=Entity.Comment #>分页查询
+export const get<#=Entity.AggregationName #>List= function (data) {
+  return get('/api/<#=Entity.AggregationName #>/getList', data)
+}
+// <#=Entity.Comment #>单条查询
+export const get<#=Entity.AggregationName #>= function (data) {
+  return get('/api/<#=Entity.AggregationName #>/get', data)
+}
+//新增<#=Entity.Comment #>
+export const create<#=Entity.AggregationName #>=function(data){
+  return post('/api/<#=Entity.AggregationName #>/create',data);
+}
+//修改<#=Entity.Comment #>
+export const update<#=Entity.AggregationName #>=function(data){
+  return put('/api/<#=Entity.AggregationName #>/update',data);
+}
+//删除<#=Entity.Comment #>
+export const delete<#=Entity.AggregationName #>=function(data){
+  return deleteR('/api/<#=Entity.AggregationName #>/delete',data);
+}
+//导出<#=Entity.Comment #>
+export const export<#=Entity.AggregationName #>=function(data){
+  return get('/api/<#=Entity.AggregationName #>/export',data);
+}

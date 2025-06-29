@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>HB.AbpFundation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\HB.AbpFundation.Domain\HB.AbpFundation.Domain.csproj" />
+    <ProjectReference Include="..\HB.AbpFundation.TestBase\HB.AbpFundation.TestBase.csproj" />
+  </ItemGroup>
+
+
+</Project>

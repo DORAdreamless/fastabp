@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <RootNamespace>HB.AbpFundation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="FreeSql.Cloud" Version="2.0.1" />
+	  <PackageReference Include="LinqKit.Core" Version="1.2.8" />
+	  <PackageReference Include="Mono.TextTemplating" Version="3.0.0" />
+
+	  <PackageReference Include="Volo.Abp.AutoMapper" Version="8.3.4" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="8.3.4" />
+    <ProjectReference Include="..\HB.AbpFundation.Application.Contracts\HB.AbpFundation.Application.Contracts.csproj" />
+    <ProjectReference Include="..\HB.AbpFundation.Domain\HB.AbpFundation.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

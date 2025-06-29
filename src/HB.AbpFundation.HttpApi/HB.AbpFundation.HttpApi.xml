@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HB.AbpFundation.HttpApi</name>
+    </assembly>
+    <members>
+        <member name="M:HB.AbpFundation.DataSeeds.ApiServiceDataSeedContributor.MustExportType(System.Type)">
+            <summary>
+            是否需要导出为type.d.ts
+            </summary>
+            <param name="type">要检查的类型</param>
+            <returns>是否需要导出</returns>
+        </member>
+        <member name="T:HB.AbpFundation.RBAC.MenuController">
+            <summary>
+            菜单接口
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.MenuController.CreateAsync(HB.AbpFundation.DTOs.RBAC.CreateMenuInput)">
+            <summary>
+            新增菜单
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.MenuController.UpdateAsync(HB.AbpFundation.DTOs.RBAC.UpdateMenuInput)">
+            <summary>
+            更新菜单
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.MenuController.DeleteAsync(System.Guid)">
+            <summary>
+            删除菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.MenuController.GetAllAsync(HB.AbpFundation.DTOs.RBAC.GetMenuInput)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HB.AbpFundation.RBAC.RoleController">
+            <summary>
+            角色接口
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.RoleController.GetAllAsync">
+            <summary>
+            角色列表查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.RoleController.GetListAsync(HB.AbpFundation.DTOs.RBAC.GetRoleInput)">
+            <summary>
+            角色列表查询
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.RoleController.GetAsync(HB.AbpFundation.DTOs.Common.GetIdInput)">
+            <summary>
+            查询角色详情
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.RoleController.CreateAsync(HB.AbpFundation.DTOs.RBAC.CreateRoleInput)">
+            <summary>
+            新增角色
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.RoleController.UpdateAsync(HB.AbpFundation.DTOs.RBAC.UpdateRoleInput)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.RoleController.DeleteAsync(System.Guid)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HB.AbpFundation.RBAC.TenantController">
+            <summary>
+            租户接口
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.TenantController.CreateAsync(HB.AbpFundation.DTOs.RBAC.CreateTenantInput)">
+            <summary>
+            新增租户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.TenantController.UpdateAsync(HB.AbpFundation.DTOs.RBAC.UpdateTenantInput)">
+            <summary>
+            修改租户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.TenantController.DeleteAsync(System.Guid)">
+            <summary>
+            删除租户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.TenantController.GetListAsync(HB.AbpFundation.DTOs.RBAC.GetTenantInput)">
+            <summary>
+            查询租户列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.TenantController.GetAsync(HB.AbpFundation.DTOs.Common.GetIdInput)">
+            <summary>
+            查询租户详情
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HB.AbpFundation.RBAC.UserController">
+            <summary>
+            菜单接口
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.UserController.CreateAsync(HB.AbpFundation.DTOs.RBAC.CreateUserInput)">
+            <summary>
+            新增菜单
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.UserController.UpdateAsync(HB.AbpFundation.DTOs.RBAC.UpdateUserInput)">
+            <summary>
+            更新用户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.UserController.UpdateProfileAsync(HB.AbpFundation.DTOs.RBAC.UpdateUserProfileInput)">
+            <summary>
+            修改个人资料
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.UserController.UpdatePasswordAsync(HB.AbpFundation.DTOs.RBAC.UpdatePasswordInput)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.UserController.DeleteAsync(System.Guid)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.RBAC.UserController.GetAsync(HB.AbpFundation.DTOs.Common.GetIdInput)">
+            <summary>
+            查询用户信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Samples.CodeSmithController.GenerateCodeAsync(HB.AbpFundation.Samples.GenerateCodeInput)">
+            <summary>
+            生成代码
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Samples.CodeSmithController.GenerateVbaScriptAsync(System.String)">
+            <summary>
+            生成VBA脚本
+            </summary>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HB.AbpFundation.Samples.CodeSmithController.GetAllDomainsAsync">
+            <summary>
+            返回所有实体类信息
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,61 @@
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\\Windows\System32\\CodeSmithCore.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeSmithCore" #>
+<#@ parameter type="String" name="Namespace" #>
+<#@ parameter type="String" name="CompanyName" #>
+<#@ parameter type="String" name="ModuleName" #>
+<#@ parameter type="String" name="FunctionName" #>
+<#@ parameter type="PersistenceObjectInfo" name="Entity" #>
+<#@ output extension=".cs" #>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using <#=CompanyName#>.<#=ModuleName#>.Application.Contracts.<#=FunctionName#>;
+using <#=CompanyName#>.<#=ModuleName#>.AggregateRoot.<#=FunctionName#>;
+using <#=CompanyName#>.<#=ModuleName#>.Domain.Repositories.<#=FunctionName#>;
+using <#=CompanyName #>.<#=ModuleName#>.DTOs.<#=FunctionName#>;
+using <#=CompanyName #>.<#=ModuleName#>.ValueObject.<#=FunctionName#>;
+
+namespace <#=Namespace#>.<#=FunctionName#>
+{
+    /// <summary>
+    /// <#=Entity.Comment #>服务
+    /// </summary>
+    public class <#=Entity.UseCaseServiceName#> : <#=ModuleName#>AppService, <#=Entity.IUseCaseServiceName#>
+    {
+        private readonly  <#=Entity.IRepositoryName#> _repository;
+
+        public <#=Entity.UseCaseServiceName#>(<#=Entity.IRepositoryName#> repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<bool> CreateAsync(<#=Entity.CreateInput #> input)
+        {
+            var <#=Entity.AggregationVar#> = ObjectMapper.Map<<#=Entity.CreateInput #>, <#=Entity.AggregationName #>>(input);
+            await _repository.AddAsync(<#=Entity.AggregationVar#>);
+            return await _repository.SaveChangesAsync();
+        }
+
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            await _repository.DeleteAsync(id);
+            return await _repository.SaveChangesAsync();
+        }
+
+        public async Task<bool> UpdateAsync(<#=Entity.UpdateInput #> input)
+        {
+            var <#=Entity.AggregationVar#> = await _repository.GetAsync(input.Id);
+            <#=Entity.AggregationVar#> = ObjectMapper.Map<<#=Entity.UpdateInput #>, <#=Entity.AggregationName #>>(input, <#=Entity.AggregationVar#>);
+            await _repository.UpdateAsync(<#=Entity.AggregationVar#>);
+            return await _repository.SaveChangesAsync();
+        }
+    }
+}
