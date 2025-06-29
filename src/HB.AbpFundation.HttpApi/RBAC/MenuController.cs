@@ -8,25 +8,6 @@ using Volo.Abp.Application.Dtos;
 
 namespace HB.AbpFundation.RBAC
 {
-    [Route("api/AbpFundation/[controller]/[action]")]
-    public class PermissionGrantedController : AbpFundationController
-    {
-        private readonly IPermissionGrantedService _permissionGrantedService;
-
-        public PermissionGrantedController(IPermissionGrantedService permissionGrantedService)
-        {
-            _permissionGrantedService = permissionGrantedService;
-        }
-
-        [HttpPost]
-        public async Task<QueryApiBaseResultDto<bool>> GrantedAsync([FromBody] GrantedInput input)
-        {
-            return await HandleAsync(async () =>
-            {
-                return await _permissionGrantedService.GrantedAsync(input);
-            });
-        }
-    }
     /// <summary>
     /// 菜单接口
     /// </summary>
@@ -41,6 +22,11 @@ namespace HB.AbpFundation.RBAC
             _menuService = menuService;
             _menuQueryService = menuQueryService;
         }
+
+        public MenuController()
+        {
+        }
+
         /// <summary>
         /// 新增菜单
         /// </summary>
