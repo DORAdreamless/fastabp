@@ -1,0 +1,27 @@
+
+
+{
+  "FileStorage": {
+    "DefaultProvider": "qiniu",
+    "Qiniu": {
+      "AccessKey": "your-qiniu-access-key",
+      "SecretKey": "your-qiniu-secret-key",
+      "Bucket": "your-bucket-name",
+      "Zone": "ZoneCnEast"
+    },
+    "Aliyun": {
+      "Endpoint": "oss-cn-hangzhou.aliyuncs.com",
+      "AccessKeyId": "your-aliyun-access-key-id",
+      "AccessKeySecret": "your-aliyun-access-key-secret",
+      "BucketName": "your-bucket-name"
+    },
+    "MinIO": {
+      "Endpoint": "minio.example.com:9000",
+      "AccessKey": "your-minio-access-key",
+      "SecretKey": "your-minio-secret-key",
+      "BucketName": "your-bucket-name",
+      "UseSSL": "false"
+    }
+  }
+}
+

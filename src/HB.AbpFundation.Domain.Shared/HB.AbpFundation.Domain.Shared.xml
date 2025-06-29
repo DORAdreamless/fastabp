@@ -685,6 +685,26 @@
             角色
             </summary>
         </member>
+        <member name="M:HB.AbpFundation.Domain.Shared.Services.IFileStorageService.UploadAsync(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Upload file to storage
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.Domain.Shared.Services.IFileStorageService.DownloadAsync(System.String,System.String)">
+            <summary>
+            Download file from storage
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.Domain.Shared.Services.IFileStorageService.DeleteAsync(System.String,System.String)">
+            <summary>
+            Delete file from storage
+            </summary>
+        </member>
+        <member name="M:HB.AbpFundation.Domain.Shared.Services.IFileStorageService.GetMetadataAsync(System.String,System.String)">
+            <summary>
+            Get file metadata
+            </summary>
+        </member>
         <member name="T:HB.AbpFundation.Helpers.FileHelper">
             <summary>
             文件操作处理类
